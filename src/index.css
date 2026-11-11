@@ -1,0 +1,35 @@
+@import "@fontsource-variable/space-grotesk";
+@import "tailwindcss";
+
+/* Neo-brutalist design tokens */
+@theme {
+  --font-sans: "Space Grotesk Variable", system-ui, sans-serif;
+  --color-page: #fff4cc;
+  --color-surface: #ffffff;
+  --color-muted: #ffe38a;
+  --color-ink: #000000;
+  --color-sub: #1f1f1f;
+  --color-line: #000000;
+  --color-field: #000000;
+  --color-brand: #2b50ff;
+  --color-brand-soft: #cfd8ff;
+  --color-onbrand: #ffffff;
+  --color-gain: #006b3a;
+  --color-gain-tint: #b8f5d3;
+  --color-loss: #c8102e;
+  --color-loss-tint: #ffc9d4;
+  --color-amber: #ff7a00;
+  --color-onsolid: #ffffff;
+  --shadow-card: 6px 6px 0 #000;
+  --radius-card: 0px;
+  --radius-ctl: 0px;
+  --bw: 3px;
+}
+
+html, body { background: var(--color-page); color: var(--color-ink); margin: 0; transition: background-color .25s, color .25s; }
+body { font-family: var(--font-sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+input:focus, select:focus { outline: none; }
+::selection { background: var(--color-brand); color: var(--color-onbrand); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.card-shadow { box-shadow: var(--shadow-card); }
