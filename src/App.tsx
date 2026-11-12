@@ -1,9 +1,8 @@
-import { Scale } from 'lucide-react'
+import scaleImg from './assets/scale.png'
 import { useMemo, useState } from 'react'
 import { NotesTab } from './components/NotesTab'
 import { PayoffCard } from './components/PayoffCard'
 import { PayoffChart } from './components/PayoffChart'
-import { PricingTab } from './components/PricingTab'
 import { ScenarioTable } from './components/ScenarioTable'
 import { Card, CardTitle, Field, Pill, Slider, Stat } from './components/ui'
 import { calcForward, validate } from './lib/forward'
@@ -11,8 +10,8 @@ import { presets, type Preset } from './lib/presets'
 import { cn, fmtPlain } from './lib/utils'
 
 const currencies = ['$', '€', '£', 'Rs ', '¥', 'CHF ', 'C$']
-type Tab = 'calc' | 'pricing' | 'notes'
-const tabs: [Tab, string][] = [['calc', 'Calculator'], ['pricing', 'Pricing'], ['notes', 'Notes']]
+type Tab = 'calc' | 'notes'
+const tabs: [Tab, string][] = [['calc', 'Calculator'], ['notes', 'Notes']]
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('calc')
@@ -38,7 +37,7 @@ export default function App() {
       <header className="sticky top-0 z-10 border-b-[length:var(--bw)] border-line bg-surface/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 px-5 sm:px-8">
           <div className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-ctl bg-brand text-onbrand"><Scale size={20} /></div>
+            <img src={scaleImg} alt="" className="h-10 w-auto" />
             <span className="hidden text-lg font-bold tracking-tight sm:inline">Forward Calculator</span>
           </div>
           <nav className="flex rounded-ctl bg-muted p-1">
@@ -46,7 +45,7 @@ export default function App() {
               <button key={k} onClick={() => setTab(k)} className={cn('cursor-pointer rounded-ctl px-4 py-1.5 text-sm font-semibold transition', tab === k ? 'bg-surface text-brand shadow-sm' : 'text-sub hover:text-ink')}>{label}</button>
             ))}
           </nav>
-          <span className="hidden rounded-full border-[length:var(--bw)] border-line bg-brand-soft px-3 py-1 text-sm font-semibold text-brand sm:inline">IS4350 · Group 1</span>
+          <span className="hidden rounded-full border-[length:var(--bw)] border-line bg-brand-soft px-3 py-1 text-sm font-semibold text-brand sm:inline">Group 1</span>
         </div>
       </header>
 
@@ -113,7 +112,6 @@ export default function App() {
             )}
           </div>
         )}
-        {tab === 'pricing' && <PricingTab />}
         {tab === 'notes' && <NotesTab />}
       </main>
     </div>

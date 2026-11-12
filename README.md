@@ -1,4 +1,4 @@
-# Forward Contract P/L Calculator — IS4350 Group 1
+# Forward Contract P/L Calculator — Group 1
 
 React + Vite + TypeScript + Tailwind + Recharts + Framer Motion.
 
@@ -18,5 +18,4 @@ npm run build && npm run preview   # static build (works offline)
 2. **0:45–1:45 Inputs** – click the *GBP/USD* preset (slide example): F 1.5410, n 250,000, S_T 1.6000 → buyer +$14,750.
 3. **1:45–3:15 Buyer vs Seller** – drag the S_T slider below F: payoffs flip; point out zero-sum = 0.
 4. **3:15–4:00 Chart & scenarios** – payoff lines cross at F (break-even); ±10/20% table.
-5. **4:00–4:45 Extras** – Pricing tab: how F is set (cost of carry); forwards vs futures table.
-6. **4:45–5:00 Wrap-up** – hedgers vs speculators; limitations (no transaction cost / credit risk).
+5. **4:00–5:00 Wrap-up** – hedgers vs speculators; limitations (no transaction cost / credit risk).

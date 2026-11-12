@@ -9,6 +9,17 @@ const rows = [
   ['Settlement', 'Once, at maturity', 'Every day'],
 ]
 
+const symbols = [
+  ['F', 'Forward (agreed) price', 'The price fixed today for the future trade. Also called the delivery price.'],
+  ['S_T', 'Spot price at maturity', 'The actual market price on the settlement date (T). Unknown until then.'],
+  ['n', 'Quantity', 'How many units the contract covers, e.g. bushels, ounces or currency units.'],
+  ['T', 'Maturity', 'The date the contract settles.'],
+  ['S_T − F', 'Buyer (long) payoff', 'Per unit. Multiply by n for the total profit or loss.'],
+  ['F − S_T', 'Seller (short) payoff', 'The mirror image of the buyer, so the two always sum to zero.'],
+  ['F × n', 'Contract value', 'What the buyer agrees to pay in total for n units.'],
+  ['S_T × n', 'Worth at maturity', 'What those n units are actually worth in the market on the day.'],
+]
+
 export function NotesTab() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
@@ -22,7 +33,6 @@ export function NotesTab() {
           </ul>
           <p>It is zero-sum: whatever one side gains, the other loses.</p>
           <p><b className="text-ink">Hedgers</b> fix a price to remove risk, like an airline locking in fuel. <b className="text-ink">Speculators</b> bet on direction.</p>
-          <p className="rounded-ctl border border-amber bg-amber/10 px-4 py-3 text-sm text-ink">Educational model: ignores transaction costs, interest, margin and counterparty default.</p>
         </div>
       </Card>
       <Card className="p-6">
@@ -33,6 +43,17 @@ export function NotesTab() {
             <tr key={r[0]} className="border-b-[length:var(--bw)] border-line last:border-0"><td className="px-3 py-3 font-semibold">{r[0]}</td><td className="px-3 py-3 text-sub">{r[1]}</td><td className="px-3 py-3 text-sub">{r[2]}</td></tr>
           ))}</tbody>
         </table>
+      </Card>
+      <Card className="p-6 lg:col-span-2">
+        <CardTitle title="What do the symbols mean?" sub="The shorthand used on the calculator" />
+        <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+          {symbols.map(([sym, name, desc]) => (
+            <div key={sym} className="flex gap-4 rounded-ctl bg-muted px-4 py-3">
+              <dt className="num w-20 shrink-0 text-lg font-semibold text-brand">{sym}</dt>
+              <dd className="text-base text-sub"><b className="text-ink">{name}.</b> {desc}</dd>
+            </div>
+          ))}
+        </dl>
       </Card>
     </div>
   )
